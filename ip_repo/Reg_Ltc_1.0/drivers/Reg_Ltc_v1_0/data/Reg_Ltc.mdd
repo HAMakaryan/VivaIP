@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER Reg_Ltc
+	OPTION supported_peripherals = (Reg_Ltc);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = Reg_Ltc;
+END DRIVER
