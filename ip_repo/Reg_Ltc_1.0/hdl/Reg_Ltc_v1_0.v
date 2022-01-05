@@ -15,9 +15,9 @@
 	)
 	(
 		// Users to add ports here
-    input   wire        sclk_i,
+//    input   wire        sclk_i,
     input   wire        sdo_i,
-    input   wire        conv_i,
+    inout   wire        conv_io,
     output  wire        conv_o,
     output  wire        sck_o,
     output  wire        gen_o,
@@ -54,9 +54,9 @@
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) Reg_Ltc_v1_0_S00_AXI_inst (
-    .sclk_i(sclk_i),
+//    .sclk_i(sclk_i),
     .sdo_i(sdo_i),
-    .conv_i(conv_i),
+    .conv_io(conv_io),
     .conv_o(conv_o),
     .sck_o(sck_o),
     .gen_o(gen_o),

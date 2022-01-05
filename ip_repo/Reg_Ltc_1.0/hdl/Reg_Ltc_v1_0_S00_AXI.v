@@ -15,9 +15,9 @@
   )
   (
     // Users to add ports here
-    input   wire        sclk_i,
+//    input   wire        sclk_i,
     input   wire        sdo_i,
-    input   wire        conv_i,
+    inout   wire        conv_io,
     output  wire        conv_o,
     output  wire        sck_o,
     output  wire        gen_o,
@@ -106,12 +106,18 @@
   localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
   localparam integer OPT_MEM_ADDR_BITS = 3;
   //----------------------------------------------
-  localparam  integer BIT_NUM           = CHANNEL_NUM * 16;
+  localparam  integer BIT_NUM           = CHANNEL_NUM * 16 + 2;
   localparam          IDLE_STATE        = 2'b00;
   localparam          READ_DATA_STATE   = 2'b01;
   localparam          GEN_CONV_STATE    = 2'b10;
 
   wire                sck_posedge;
+  wire                sclk;
+  wire                tris_O;
+//  wire                tris_IO;
+//  wire                tris_I;
+  wire                tris_T;
+  wire                start_conv;
 
   reg   [15:0]        input_data_reg;
   reg                 sclk_reg;
@@ -119,6 +125,11 @@
   reg   [ 1:0]        state_next;
   reg                 conv_internal;
   reg   [ 6:0]        bit_counter;
+  reg                 sck_enable;
+  reg   [ 1:0]        sck_counter;
+  reg   [19:0]        counter;
+  reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1_reg;
+  reg                 tris_O_reg;
 
   //-- Signals for user logic register space example
   //------------------------------------------------
@@ -554,9 +565,38 @@
 
 // Add user logic here
 
-assign sck_posedge = ((sclk_reg == 1'b0) && (sclk_i == 1'b1))? 1'b1 : 1'b0;
-assign conv_o      = (state_reg == GEN_CONV_STATE)? 1'b1 : 1'b0;
-assign gen_o       = 1'b0;
+
+
+
+
+
+// IOBUF: Single-ended Bi-directional Buffer
+// All devices
+// Xilinx HDL Language Template, version 2019.1
+IOBUF
+
+// #(
+//  .DRIVE        (12         ), // Specify the output drive strength
+//  .IBUF_LOW_PWR ("TRUE"     ), // Low Power - "TRUE", High Performance = "FALSE"
+//  .IOSTANDARD   ("LVCMOS33" ), // Specify the I/O standard
+//  .SLEW         ("FAST"     ) // Specify the output slew rate
+//)
+
+IOBUF_inst (
+  .O(tris_O),   // Buffer output
+  .IO(conv_io), // Buffer inout port (connect directly to top-level port)
+  .I(1'b1),     // Buffer input
+  .T(tris_T)    // 3-state enable input, high=input, low=output
+);
+// End of IOBUF_inst instantiation
+
+assign tris_T = (state_reg == GEN_CONV_STATE)? 1'b0 : 1'b1;
+assign conv_o = (counter[19:5] == 15'H7FFF)? 1'b1 : 1'b0;
+assign sclk   = sck_counter[1];
+assign sck_o  = sclk_reg;
+assign gen_o  = counter[0];
+assign start_conv = (slv_reg1_reg == slv_reg1)? 1'b1 : 1'b0;
+assign sck_posedge  = ((sclk_reg == 1'b0) && (sclk == 1'b1))? 1'b1 : 1'b0;
 
 always @(posedge S_AXI_ACLK)
 begin
@@ -564,7 +604,7 @@ begin
     ch01_data_reg   <= 32'd0;
     ch23_data_reg   <= 32'd0;
     ch45_data_reg   <= 32'd0;
-    status_reg[7:0] <=  8'd0;
+    status_reg      <= {C_S_AXI_DATA_WIDTH{1'b0}};
   end else begin
     if (axi_rvalid && S_AXI_RREADY) begin
       case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
@@ -589,7 +629,7 @@ begin
             end
       endcase
     end
-    if (sck_posedge == 1'b1) begin
+    if ((sck_posedge == 1'b1) && (conv_internal == 1'b1 )) begin
       case (bit_counter)
         7'h10:
         begin
@@ -637,7 +677,7 @@ begin
   if (S_AXI_ARESETN == 1'b0) begin
     sclk_reg  <= 1'b0;
   end else begin
-    sclk_reg  <= sclk_i;
+    sclk_reg  <= sclk;
   end
 end
 
@@ -650,6 +690,19 @@ begin
       bit_counter <= bit_counter + 7'd1;
     end else begin
       bit_counter <= 7'd0;
+    end
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    input_data_reg <= 16'd0;
+  end else if (sck_posedge == 1'b1) begin
+    if (state_reg == READ_DATA_STATE) begin
+      input_data_reg <= {input_data_reg[14:0], sdo_i};
+    end else begin
+      input_data_reg <= 16'd0;
     end
   end
 end
@@ -682,7 +735,7 @@ begin
   case (state_reg)
     IDLE_STATE:
     begin
-      if (conv_i == 1'b1) begin
+      if ((tris_O == 1'b1) || (start_conv)) begin
         state_next = READ_DATA_STATE;
       end
     end
@@ -708,7 +761,74 @@ begin
 
 end
 
-///////////////////////////////////////
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    sck_enable  <= 1'b0;
+  end else begin
+    if (tris_O == 1'b1) begin
+      sck_enable <= 1'b1;
+    end else if (state_next  == IDLE_STATE       &&
+                 state_reg   == READ_DATA_STATE  &&
+                 sck_posedge == 1'b1) begin
+      sck_enable <= 1'b0;
+    end
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    sck_counter <= 2'b00;
+  end else begin
+    if (sck_enable == 1'b0) begin
+      sck_counter <= 2'b00;
+    end else begin
+      sck_counter <= sck_counter + 2'b01;
+    end
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+  end else begin
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin //
+    counter <= 20'H0;
+  end else begin
+    if (tris_O_reg == 1'b1 && tris_O == 1'b0) begin
+      counter <= 20'H0;
+    end else begin
+      counter <= counter + 20'b1;
+    end
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    slv_reg1_reg  <= {C_S_AXI_DATA_WIDTH{1'b0}};
+  end else if (sck_posedge == 1'b1) begin
+    if (state_reg == IDLE_STATE) begin
+      slv_reg1_reg  <= slv_reg1;
+    end
+  end
+end
+
+always @(posedge S_AXI_ACLK) begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    tris_O_reg <= 1'b0;
+  end else begin
+    tris_O_reg <= tris_O;
+  end
+end
+
+ /////////////////////////////////////////
 always @(posedge S_AXI_ACLK)
 begin
   if (S_AXI_ARESETN == 1'b0) begin
@@ -727,58 +847,3 @@ end
 
   endmodule
 
-
-/*
-
-S_AXI_ACLK,
-S_AXI_ARESETN,
-// Write address channel signals
-S_AXI_AWADDR : Master : Write address.
-              The write address gives the address of the first transfer in a write burst transaction.
-S_AXI_AWPROT : Master : Protection type.(Not connected)
-
-S_AXI_AWVALID: Master : Write address valid.
-S_AXI_AWREADY: Slave  : Write address ready.
-              This signal indicates that the slave is ready to accept an address and associated control signals.
-
-
-// Write data channel signals
-S_AXI_WDATA  : Master : Write data.
-S_AXI_WSTRB  : Master : Write strobes. This signal indicates which byte lanes hold valid data.
-                        There is one write strobe bit for each eight bits of the write data bus.
-S_AXI_WVALID : Master : Write valid.
-                        This signal indicates that valid write data and strobes are available.
-S_AXI_WREADY : Slave  : Write ready. This signal indicates that the slave can accept the write data.
-
-//  Write response channel signals
-S_AXI_BRESP  : Slave  : Write response. This signal indicates the status of the write transaction.
-                        Note: In Vivado generated design the S_AXI_BRESP === 2'b0.
-S_AXI_BVALID : Slave  : Write response valid.
-                        This signal indicates that the channel is signaling a valid write response.
-S_AXI_BREADY : Master : Response ready. This signal indicates that the master can accept a write response.
-
-//  Read address channel signals
-S_AXI_ARADDR : Master : Read address.
-                        The read address gives the address of the first transfer in a read burst transaction.
-S_AXI_ARPROT : Master : Protection type.
-                        This signal indicates the privilege and security level of the transaction,
-                        and whether the transaction is a data access or an instruction access.
-                        Note: In Vivado generated design the S_AXI_ARPROT signal is not used.
-S_AXI_ARVALID: Master : Read address valid.
-                        This signal indicates that the channel is signaling valid read
-                        address and control information.
-S_AXI_ARREADY: Slave  : Read address ready.
-                        This signal indicates that the slave is ready to accept an address
-                        and associated control signals.
-
-//  Read data channel signals
-S_AXI_RDATA  : Slave  : Read data.
-S_AXI_RRESP  : Slave  : Read response. This signal indicates the status of the read transfer.
-                        Note: In Vivado generated design the S_AXI_RRESP === 2'b0.
-S_AXI_RVALID : Slave  : Read valid. This signal indicates that the channel is signaling the required read data.
-S_AXI_RREADY : :
-
-
-
-
-*/
