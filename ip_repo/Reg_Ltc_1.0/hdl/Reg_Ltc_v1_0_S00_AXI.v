@@ -7,7 +7,7 @@
 
     // User parameters ends
     // Do not modify the parameters beyond this line
-    parameter   integer CHANNEL_NUM       = 5,
+    parameter   integer CHANNEL_NUM       = 6,
     // Width of S_AXI data bus
     parameter integer C_S_AXI_DATA_WIDTH  = 32,
     // Width of S_AXI address bus
@@ -130,6 +130,7 @@
   reg   [19:0]        counter;
   reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1_reg;
   reg                 tris_O_reg;
+  reg                 sdo_reg;
 
   //-- Signals for user logic register space example
   //------------------------------------------------
@@ -595,7 +596,7 @@ assign conv_o = (counter[19:5] == 15'H7FFF)? 1'b1 : 1'b0;
 assign sclk   = sck_counter[1];
 assign sck_o  = sclk_reg;
 assign gen_o  = counter[0];
-assign start_conv = (slv_reg1_reg == slv_reg1)? 1'b1 : 1'b0;
+assign start_conv = (slv_reg1_reg == slv_reg1)? 1'b0 : 1'b1;
 assign sck_posedge  = ((sclk_reg == 1'b0) && (sclk == 1'b1))? 1'b1 : 1'b0;
 
 always @(posedge S_AXI_ACLK)
@@ -700,7 +701,7 @@ begin
     input_data_reg <= 16'd0;
   end else if (sck_posedge == 1'b1) begin
     if (state_reg == READ_DATA_STATE) begin
-      input_data_reg <= {input_data_reg[14:0], sdo_i};
+      input_data_reg <= {input_data_reg[15:0], sdo_reg};
     end else begin
       input_data_reg <= 16'd0;
     end
@@ -712,7 +713,7 @@ begin
   if (S_AXI_ARESETN == 1'b0) begin
     conv_internal <= 1'b0;
   end else if (sck_posedge == 1'b1) begin
-    if (state_reg == GEN_CONV_STATE) begin
+    if ((state_next == GEN_CONV_STATE) && (state_reg == READ_DATA_STATE)) begin
       conv_internal <= 1'b1;
     end else if (state_reg == IDLE_STATE) begin
       conv_internal <= 1'b0;
@@ -735,8 +736,10 @@ begin
   case (state_reg)
     IDLE_STATE:
     begin
-      if ((tris_O == 1'b1) || (start_conv)) begin
+      if ((tris_O == 1'b1) ) begin
         state_next = READ_DATA_STATE;
+      end else if (start_conv == 1'b1) begin
+        state_next = GEN_CONV_STATE;
       end
     end
     READ_DATA_STATE:
@@ -766,6 +769,8 @@ begin
   if (S_AXI_ARESETN == 1'b0) begin
     sck_enable  <= 1'b0;
   end else begin
+    sck_enable <= 1'b1;
+    /*
     if (tris_O == 1'b1) begin
       sck_enable <= 1'b1;
     end else if (state_next  == IDLE_STATE       &&
@@ -773,6 +778,7 @@ begin
                  sck_posedge == 1'b1) begin
       sck_enable <= 1'b0;
     end
+    */
   end
 end
 
@@ -825,6 +831,15 @@ always @(posedge S_AXI_ACLK) begin
     tris_O_reg <= 1'b0;
   end else begin
     tris_O_reg <= tris_O;
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    sdo_reg <= 1'b0;
+  end else begin
+    sdo_reg <= sdo_i;
   end
 end
 

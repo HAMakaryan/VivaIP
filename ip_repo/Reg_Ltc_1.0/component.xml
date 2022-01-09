@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e6ebe9a0</spirit:value>
+            <spirit:value>a8f959e9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e6ebe9a0</spirit:value>
+            <spirit:value>a8f959e9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -310,7 +310,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3a517369</spirit:value>
+            <spirit:value>296ddaf4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -721,7 +721,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CHANNEL_NUM</spirit:name>
         <spirit:displayName>Channel Num</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_NUM">5</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_NUM">6</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -751,7 +751,7 @@
       <spirit:file>
         <spirit:name>hdl/Reg_Ltc_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_e4e754a6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_df6b2220</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -802,7 +802,7 @@
       <spirit:file>
         <spirit:name>xgui/Reg_Ltc_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_3a517369</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_296ddaf4</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -872,8 +872,8 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CHANNEL_NUM</spirit:name>
-      <spirit:displayName>Channel Num</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_NUM">5</spirit:value>
+      <spirit:displayName>CHANNEL_NUM</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_NUM">6</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -885,8 +885,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Reg_Ltc_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>22</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-01-05T11:34:54Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>30</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-01-07T09:30:23Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4298b4e5_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@76ca5adf_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
@@ -1270,16 +1270,105 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4eb093d0_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@48389d6b_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3d9522ff_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46017e95_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11f3536d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b6c98f2_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ed294b7_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d4fdb0f_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@736d9f7a_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6916e8d7_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49b56d32_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fd64cd0_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25c1325_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@dee2d29_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e7a6ef9_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c4e1e0e_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@604e7281_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ab9bb66_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a5cb584_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55b0f405_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1aa91f52_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f3eff0e_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4507c5d8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2312d1de_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47dbb1cd_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ea54aa0_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8c6938b_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53fab323_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5de95285_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c7d970c_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78a2777d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1777ecb_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@686f4bd1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@747bbe48_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47f0f6a4_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ea30e8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26ddf3d6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f07da41_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@283efed_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36067b04_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4575c168_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b7e13a2_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@376f1d1c_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d684bc3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4879b8e2_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fb99410_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d7d8dae_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73fe81e3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47fdedcf_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40387f2_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49293362_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@111085cc_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f16c49f_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3131f3d1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c1df594_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@732f50c8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26f555d3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d9bd8b1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3714f960_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bb28005_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4af8c655_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6544c3dd_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a743b52_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@248abb3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11d8d712_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@587782ca_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b7ba329_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3dc3544d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@209e1168_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@264b9134_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b748ed1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d4a7fa0_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d00cae7_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78a84184_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5409b042_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56ce0ec6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b3b6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3af6e95a_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12d913bf_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6887e7b1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7397ba6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46f44f2a_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b0e8a12_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ecd0729_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4aae6116_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3cabcca8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@331e566d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@618b31d1_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56a44021_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c928751_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@661d545f_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d3683b8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="addc58e4"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e30211ca"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a6dd2c07"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="2f0f2147"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="e9da7e44"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="aaf2a996"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="20ee6549"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="319b1297"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -4,7 +4,7 @@
 	module Reg_Ltc_v1_0 #
 	(
 		// Users to add parameters here
-    parameter integer CHANNEL_NUM         = 5,
+    parameter integer CHANNEL_NUM         = 6,
 
 		// User parameters ends
 		// Do not modify the parameters beyond this line
