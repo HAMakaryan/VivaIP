@@ -21,6 +21,14 @@
     output  wire        conv_o,
     output  wire        sck_o,
     output  wire        gen_o,
+
+    input   wire        trigger_input_1,
+    output  wire        isb,
+    output  wire        g_tia,
+    output  wire        msb,
+    output  wire        latch,
+    output  wire        lsb,
+
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -60,6 +68,12 @@
     .conv_o(conv_o),
     .sck_o(sck_o),
     .gen_o(gen_o),
+    .trigger_input_1(trigger_input_1),
+    .isb(isb),
+    .g_tia(g_tia),
+    .msb(msb),
+    .latch(latch),
+    .lsb(lsb),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),

@@ -21,6 +21,15 @@
     output  wire        conv_o,
     output  wire        sck_o,
     output  wire        gen_o,
+
+    input   wire        trigger_input_1,
+    output  wire        isb,
+    output  wire        g_tia,
+    output  wire        msb,
+    output  wire        latch,
+    output  wire        lsb,
+
+
     // User ports ends
     // Do not modify the ports beyond this line
 
@@ -146,8 +155,8 @@
   reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg8;
   reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg9;
   reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg10;
-  reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg11;
-  reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg12;
+  reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg11;      // (inpt_data_reg)
+  reg [C_S_AXI_DATA_WIDTH-1:0]  slv_reg12;      // (output_data_reg)
   reg [C_S_AXI_DATA_WIDTH-1:0]  ch01_data_reg;
   reg [C_S_AXI_DATA_WIDTH-1:0]  ch23_data_reg;
   reg [C_S_AXI_DATA_WIDTH-1:0]  ch45_data_reg;
@@ -158,7 +167,52 @@
   reg  aw_en;
 
   ////////////////USER SIGNALS BEGIN
+/*
 
+status_reg
+  status_reg[0]
+          1 = there is a new data in ch01_data_reg[15: 0] at ch0 input
+          0 = the last data has been read from register ch01_data_reg
+
+  status_reg[1]
+          1 = there is a new data in ch01_data_reg[31:16] at ch1 input
+          0 = the last data has been read from register ch01_data_reg
+
+  status_reg[2]
+          1 = there is a new data in ch23_data_reg[15: 0] at ch2 input
+          0 = the last data has been read from register ch23_data_reg
+
+  status_reg[3]
+          1 = there is a new data in ch23_data_reg[31:16] at ch3 input
+          0 = the last data has been read from register ch23_data_reg
+
+  status_reg[4]
+          1 = there is a new data in ch45_data_reg[15: 0] at ch4 input
+          0 = the last data has been read from register ch45_data_reg
+
+  status_reg[5]
+          1 = there is a new data in ch45_data_reg[31:16] at ch5 input
+          0 = the last data has been read from register ch45_data_reg
+
+
+slv_reg1
+  changing the value of this register generates a new measurement cycle
+
+slv_reg12 (output_data_reg)
+
+    isb   = slv_reg12[0];
+    g_tia = slv_reg12[1];
+    msb   = slv_reg12[2];
+    latch = slv_reg12[3];
+    lsb   = slv_reg12[4];
+
+*/
+
+  assign  isb   = slv_reg12[0];
+  assign  g_tia = slv_reg12[1];
+  assign  msb   = slv_reg12[2];
+  assign  latch = slv_reg12[3];
+  assign  lsb   = slv_reg12[4];
 
   ////////////////USER SIGNALS END
   // I/O Connections assignments
@@ -278,7 +332,7 @@
         slv_reg8 <= 0;
         slv_reg9 <= 0;
         slv_reg10 <= 0;
-        slv_reg11 <= 0;
+//        slv_reg11 [C_S_AXI_DATA_WIDTH-1:1] <= 0;
         slv_reg12 <= 0;
 //        ch01_data_reg <= 0;
 //        ch23_data_reg <= 0;
@@ -370,7 +424,11 @@
                 if ( S_AXI_WSTRB[byte_index] == 1 ) begin
                   // Respective byte enables are asserted as per write strobes
                   // Slave register 11
-                  slv_reg11[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                  if (byte_index == 0) begin
+//                    slv_reg11[(byte_index*8) +: 7] <= S_AXI_WDATA[(byte_index*8) +: 7];
+                  end else begin
+//                    slv_reg11[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                  end
                 end
             4'hC:
               for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
@@ -412,7 +470,7 @@
                         slv_reg8 <= slv_reg8;
                         slv_reg9 <= slv_reg9;
                         slv_reg10 <= slv_reg10;
-                        slv_reg11 <= slv_reg11;
+//                        slv_reg11[C_S_AXI_DATA_WIDTH-1:1] <= slv_reg11[C_S_AXI_DATA_WIDTH-1:1];
                         slv_reg12 <= slv_reg12;
 //                        ch01_data_reg <= ch01_data_reg;
 //                        ch23_data_reg <= ch23_data_reg;
@@ -840,6 +898,16 @@ begin
     sdo_reg <= 1'b0;
   end else begin
     sdo_reg <= sdo_i;
+  end
+end
+
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    slv_reg11[0] <= 1'b0;
+  end else begin
+    slv_reg11[0] <= trigger_input_1;
   end
 end
 
