@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>40ef0fdc</spirit:value>
+            <spirit:value>f17f6f38</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>40ef0fdc</spirit:value>
+            <spirit:value>f17f6f38</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -398,7 +398,7 @@
       <spirit:port>
         <spirit:name>trigger_input_1</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -829,7 +829,7 @@
       <spirit:file>
         <spirit:name>hdl/Reg_Ltc_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_7fa136be</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_ddb11ded</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -963,8 +963,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Reg_Ltc_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>31</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-01-13T10:16:29Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>33</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-01-18T18:37:57Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4298b4e5_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@76ca5adf_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
@@ -1467,14 +1467,42 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@119204d8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1028cbaa_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@47f207c5_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e585473_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45f0d4a9_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ce48446_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e951716_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34a1ff3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27c29970_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@388552e8_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e527edd_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13bb9644_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d8b77a4_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24296fd6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@89ab79c_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8dfe86d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9aa79d_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c3dcf7_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@428b7b6_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26cb21b9_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c64260_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@79550ac0_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5093338e_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@cc9662a_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a1643bc_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@777578c_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b00f181_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54d49984_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2dec6adc_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51824db_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24b93270_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="addc58e4"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="91e7e53c"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="183606a3"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="33631ab1"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="39c713fd"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="20ee6549"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="319b1297"/>
     </xilinx:packagingInfo>

@@ -22,7 +22,7 @@
     output  wire        sck_o,
     output  wire        gen_o,
 
-    input   wire        trigger_input_1,
+    output  wire        trigger_input_1,
     output  wire        isb,
     output  wire        g_tia,
     output  wire        msb,

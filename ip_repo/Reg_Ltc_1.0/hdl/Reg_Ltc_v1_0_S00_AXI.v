@@ -22,13 +22,12 @@
     output  wire        sck_o,
     output  wire        gen_o,
 
-    input   wire        trigger_input_1,
+    output  wire        trigger_input_1,
     output  wire        isb,
     output  wire        g_tia,
     output  wire        msb,
     output  wire        latch,
     output  wire        lsb,
-
 
     // User ports ends
     // Do not modify the ports beyond this line
@@ -200,19 +199,21 @@ slv_reg1
 
 slv_reg12 (output_data_reg)
 
-    isb   = slv_reg12[0];
-    g_tia = slv_reg12[1];
-    msb   = slv_reg12[2];
-    latch = slv_reg12[3];
-    lsb   = slv_reg12[4];
+    isb             = slv_reg12[0];
+    g_tia           = slv_reg12[1];
+    msb             = slv_reg12[2];
+    latch           = slv_reg12[3];
+    lsb             = slv_reg12[4];
+    trigger_input_1 = slv_reg12[5];
 
 */
 
-  assign  isb   = slv_reg12[0];
-  assign  g_tia = slv_reg12[1];
-  assign  msb   = slv_reg12[2];
-  assign  latch = slv_reg12[3];
-  assign  lsb   = slv_reg12[4];
+  assign  isb             = slv_reg12[0];
+  assign  g_tia           = slv_reg12[1];
+  assign  msb             = slv_reg12[2];
+  assign  latch           = slv_reg12[3];
+  assign  lsb             = slv_reg12[4];
+  assign  trigger_input_1 = slv_reg12[5];
 
   ////////////////USER SIGNALS END
   // I/O Connections assignments
@@ -907,7 +908,7 @@ begin
   if (S_AXI_ARESETN == 1'b0) begin
     slv_reg11[0] <= 1'b0;
   end else begin
-    slv_reg11[0] <= trigger_input_1;
+    slv_reg11[0] <= 1'b0;
   end
 end
 
