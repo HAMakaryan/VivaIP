@@ -29,6 +29,9 @@
     output  wire        latch,
     output  wire        lsb,
 
+    output  wire        RS485_Rx_En_n,
+    output  wire        RS485_Tx_En,
+
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -74,6 +77,8 @@
     .msb(msb),
     .latch(latch),
     .lsb(lsb),
+    .RS485_Rx_En_n(RS485_Rx_En_n),
+    .RS485_Tx_En(RS485_Tx_En),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),

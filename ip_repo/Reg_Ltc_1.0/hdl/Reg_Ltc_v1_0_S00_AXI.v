@@ -28,6 +28,8 @@
     output  wire        msb,
     output  wire        latch,
     output  wire        lsb,
+    output  wire        RS485_Rx_En_n,
+    output  wire        RS485_Tx_En,
 
     // User ports ends
     // Do not modify the ports beyond this line
@@ -205,6 +207,9 @@ slv_reg12 (output_data_reg)
     latch           = slv_reg12[3];
     lsb             = slv_reg12[4];
     trigger_input_1 = slv_reg12[5];
+    RS485_Rx_En_n   = slv_reg12[6];
+    RS485_Tx_En     =!slv_reg12[7];
+
 
 */
 
@@ -214,6 +219,9 @@ slv_reg12 (output_data_reg)
   assign  latch           = slv_reg12[3];
   assign  lsb             = slv_reg12[4];
   assign  trigger_input_1 = slv_reg12[5];
+  assign  RS485_Rx_En_n   = slv_reg12[6];
+  assign  RS485_Tx_En     =!slv_reg12[7];
+
 
   ////////////////USER SIGNALS END
   // I/O Connections assignments
