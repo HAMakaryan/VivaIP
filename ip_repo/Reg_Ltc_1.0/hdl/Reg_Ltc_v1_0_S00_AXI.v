@@ -137,7 +137,7 @@
   reg   [ 6:0]        bit_counter;
   reg                 sck_enable;
   reg   [ 1:0]        sck_counter;
-  reg   [19:0]        counter;
+  reg   [27:0]        counter;
   reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1_reg;
   reg                 tris_O_reg;
   reg                 sdo_reg;
@@ -218,7 +218,8 @@ slv_reg12 (output_data_reg)
   assign  msb             = slv_reg12[2];
   assign  latch           = slv_reg12[3];
   assign  lsb             = slv_reg12[4];
-  assign  trigger_input_1 = slv_reg12[5];
+//  assign  trigger_input_1 = slv_reg12[5];
+  assign  trigger_input_1 = conv_o;
   assign  RS485_Rx_En_n   = slv_reg12[6];
   assign  RS485_Tx_En     =!slv_reg12[7];
 
@@ -659,7 +660,7 @@ IOBUF_inst (
 // End of IOBUF_inst instantiation
 
 assign tris_T = (state_reg == GEN_CONV_STATE)? 1'b0 : 1'b1;
-assign conv_o = (counter[19:5] == 15'H7FFF)? 1'b1 : 1'b0;
+assign conv_o = (counter[27:5] == 23'H7FFFFF)? 1'b1 : 1'b0;
 assign sclk   = sck_counter[1];
 assign sck_o  = sclk_reg;
 assign gen_o  = counter[0];

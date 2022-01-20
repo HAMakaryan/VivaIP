@@ -143,9 +143,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports msb_0]
 set_property IOSTANDARD LVCMOS33 [get_ports sck_o_0]
 set_property IOSTANDARD LVCMOS33 [get_ports sdo_i_0]
 set_property IOSTANDARD LVCMOS33 [get_ports trigger_input_1_0]
+set_property PACKAGE_PIN B18 [get_ports conv_o_0]
 set_property PACKAGE_PIN P3 [get_ports gen_o_0]
 set_property PACKAGE_PIN A18 [get_ports conv_io_0]
-set_property PACKAGE_PIN B18 [get_ports conv_o_0]
 set_property PACKAGE_PIN K2 [get_ports g_tia_0]
 set_property PACKAGE_PIN K3 [get_ports isb_0]
 set_property PACKAGE_PIN M3 [get_ports latch_0]
@@ -174,3 +174,10 @@ set_property PACKAGE_PIN A16 [get_ports RS485_Tx_En_0]
 
 
 set_property SLEW FAST [get_ports usb_uart_txd]
+
+set_property CONFIG_MODE SPIx1 [current_design]
+
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+
+set_property SLEW FAST [get_ports conv_io_0]
+set_property PULLDOWN true [get_ports conv_io_0]
