@@ -181,3 +181,5 @@ set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 
 set_property SLEW FAST [get_ports conv_io_0]
 set_property PULLDOWN true [get_ports conv_io_0]
+
+set_property DRIVE 16 [get_ports conv_io_0]

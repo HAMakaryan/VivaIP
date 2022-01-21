@@ -663,7 +663,7 @@ assign tris_T = (state_reg == GEN_CONV_STATE)? 1'b0 : 1'b1;
 assign conv_o = (counter[27:5] == 23'H7FFFFF)? 1'b1 : 1'b0;
 assign sclk   = sck_counter[1];
 assign sck_o  = sclk_reg;
-assign gen_o  = counter[0];
+assign gen_o  = 1'b0;  // counter[0];
 assign start_conv = (slv_reg1_reg == slv_reg1)? 1'b0 : 1'b1;
 assign sck_posedge  = ((sclk_reg == 1'b0) && (sclk == 1'b1))? 1'b1 : 1'b0;
 
