@@ -132,6 +132,10 @@
 
 
 set_property PULLDOWN true [get_ports reset]
+set_property PULLDOWN true [get_ports sdo_i_0]
+set_property PULLUP   true [get_ports usb_uart_rxd]
+set_property PULLDOWN true [get_ports conv_io_0]
+
 set_property IOSTANDARD LVCMOS33 [get_ports conv_io_0]
 set_property IOSTANDARD LVCMOS33 [get_ports conv_o_0]
 set_property IOSTANDARD LVCMOS33 [get_ports g_tia_0]
@@ -143,6 +147,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports msb_0]
 set_property IOSTANDARD LVCMOS33 [get_ports sck_o_0]
 set_property IOSTANDARD LVCMOS33 [get_ports sdo_i_0]
 set_property IOSTANDARD LVCMOS33 [get_ports trigger_input_1_0]
+set_property IOSTANDARD LVCMOS33 [get_ports RS485_Rx_En_n_0]
+set_property IOSTANDARD LVCMOS33 [get_ports RS485_Tx_En_0]
+
 set_property PACKAGE_PIN B18 [get_ports conv_o_0]
 set_property PACKAGE_PIN P3 [get_ports gen_o_0]
 set_property PACKAGE_PIN A18 [get_ports conv_io_0]
@@ -154,32 +161,15 @@ set_property PACKAGE_PIN L2 [get_ports msb_0]
 set_property PACKAGE_PIN N2 [get_ports sck_o_0]
 set_property PACKAGE_PIN N3 [get_ports sdo_i_0]
 set_property PACKAGE_PIN J3 [get_ports trigger_input_1_0]
-
-set_property PULLDOWN true [get_ports sdo_i_0]
-set_property SLEW FAST [get_ports sck_o_0]
-set_property SLEW FAST [get_ports gen_o_0]
-set_property PULLUP true [get_ports usb_uart_rxd]
-
-
-
-#set_false_path -from [get_clocks -of_objects [get_pins BD_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0] -filter {IS_GENERATED && MASTER_CLOCK == sys_clock}] -to [get_clocks -of_objects [get_pins BD_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0] -filter {IS_GENERATED && MASTER_CLOCK == sys_clk_pin}]
-#set_false_path -from [get_clocks -of_objects [get_pins BD_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0] -filter {IS_GENERATED && MASTER_CLOCK == sys_clk_pin}] -to [get_clocks -of_objects [get_pins BD_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0] -filter {IS_GENERATED && MASTER_CLOCK == sys_clock}]
-
-
-set_property IOSTANDARD LVCMOS33 [get_ports RS485_Rx_En_n_0]
-set_property IOSTANDARD LVCMOS33 [get_ports RS485_Tx_En_0]
 set_property PACKAGE_PIN A15 [get_ports RS485_Rx_En_n_0]
 set_property PACKAGE_PIN A16 [get_ports RS485_Tx_En_0]
 
-
-
+set_property SLEW FAST [get_ports sck_o_0]
+set_property SLEW FAST [get_ports gen_o_0]
 set_property SLEW FAST [get_ports usb_uart_txd]
+set_property SLEW FAST [get_ports conv_io_0]
 
 set_property CONFIG_MODE SPIx1 [current_design]
-
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
-
-set_property SLEW FAST [get_ports conv_io_0]
-set_property PULLDOWN true [get_ports conv_io_0]
-
 set_property DRIVE 16 [get_ports conv_io_0]
+
