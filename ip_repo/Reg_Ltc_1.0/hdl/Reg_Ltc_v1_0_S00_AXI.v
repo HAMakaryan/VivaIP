@@ -22,7 +22,7 @@
     output  wire        sck_o,
     output  wire        gen_o,
 
-    output  wire        trigger_input_1,
+    input   wire        trigger_input_1,
     output  wire        isb,
     output  wire        g_tia,
     output  wire        msb,
@@ -206,11 +206,8 @@ slv_reg12 (output_data_reg)
     msb             = slv_reg12[2];
     latch           = slv_reg12[3];
     lsb             = slv_reg12[4];
-    trigger_input_1 = slv_reg12[5];
-    RS485_Rx_En_n   = slv_reg12[6];
-    RS485_Tx_En     =!slv_reg12[7];
-
-
+    RS485_Rx_En_n   = slv_reg12[5];
+    RS485_Tx_En     =!slv_reg12[5];
 */
 
   assign  isb             = slv_reg12[0];
@@ -218,10 +215,8 @@ slv_reg12 (output_data_reg)
   assign  msb             = slv_reg12[2];
   assign  latch           = slv_reg12[3];
   assign  lsb             = slv_reg12[4];
-//  assign  trigger_input_1 = slv_reg12[5];
-  assign  trigger_input_1 = conv_o;
-  assign  RS485_Rx_En_n   = slv_reg12[6];
-  assign  RS485_Tx_En     =!slv_reg12[7];
+  assign  RS485_Rx_En_n   = slv_reg12[5];
+  assign  RS485_Tx_En     =!RS485_Rx_En_n;
 
 
   ////////////////USER SIGNALS END
@@ -905,9 +900,9 @@ end
 always @(posedge S_AXI_ACLK)
 begin
   if (S_AXI_ARESETN == 1'b0) begin
-    sdo_reg <= 1'b0;
+    sdo_reg             <= 1'b0;
   end else begin
-    sdo_reg <= sdo_i;
+    sdo_reg             <= sdo_i;
   end
 end
 
@@ -917,7 +912,7 @@ begin
   if (S_AXI_ARESETN == 1'b0) begin
     slv_reg11[0] <= 1'b0;
   end else begin
-    slv_reg11[0] <= 1'b0;
+    slv_reg11[0] <= trigger_input_1;
   end
 end
 
