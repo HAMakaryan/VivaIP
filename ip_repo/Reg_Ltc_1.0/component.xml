@@ -989,8 +989,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Reg_Ltc_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>40</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-01-22T11:14:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>41</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-01-22T12:04:03Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4298b4e5_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@76ca5adf_ARCHIVE_LOCATION">d:/GitHub/Four_Quadrant_Detector/temp_ip/ip_repo/Reg_Ltc_1.0</xilinx:tag>
@@ -1611,6 +1611,11 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@123f2468_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4274dfaf_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@26baf1fa_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6481ee63_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ba82e35_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c008a55_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@798688e3_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63a913fb_ARCHIVE_LOCATION">d:/GitHub/VivaIP/ip_repo/Reg_Ltc_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
