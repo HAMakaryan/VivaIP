@@ -216,7 +216,7 @@ slv_reg12 (output_data_reg)
   assign  latch           = slv_reg12[3];
   assign  lsb             = slv_reg12[4];
   assign  RS485_Rx_En_n   = slv_reg12[5];
-  assign  RS485_Tx_En     =!RS485_Rx_En_n;
+  assign  RS485_Tx_En     = RS485_Rx_En_n;
 
 
   ////////////////USER SIGNALS END
