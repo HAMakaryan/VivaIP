@@ -30,6 +30,8 @@
     output  wire        lsb,
     output  wire        RS485_Rx_En_n,
     output  wire        RS485_Tx_En,
+    output  wire        Latch_Enable,
+    output  wire        Latch_Enable1,
 
     // User ports ends
     // Do not modify the ports beyond this line
@@ -141,6 +143,8 @@
   reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1_reg;
   reg                 tris_O_reg;
   reg                 sdo_reg;
+  reg                 Ltch_En;
+  reg                 Ltch_En1;
 
   //-- Signals for user logic register space example
   //------------------------------------------------
@@ -207,16 +211,19 @@ slv_reg12 (output_data_reg)
     latch           = slv_reg12[3];
     lsb             = slv_reg12[4];
     RS485_Rx_En_n   = slv_reg12[5];
-    RS485_Tx_En     =!slv_reg12[5];
+    RS485_Tx_En     = slv_reg12[6];
 */
 
-  assign  isb             = slv_reg12[0];
-  assign  g_tia           = slv_reg12[1];
-  assign  msb             = slv_reg12[2];
-  assign  latch           = slv_reg12[3];
-  assign  lsb             = slv_reg12[4];
-  assign  RS485_Rx_En_n   = slv_reg12[5];
-  assign  RS485_Tx_En     = RS485_Rx_En_n;
+  assign  isb           = slv_reg12[0];
+  assign  g_tia         = slv_reg12[1];
+  assign  msb           = slv_reg12[2];
+  assign  latch         = slv_reg12[3];
+  assign  lsb           = slv_reg12[4];
+  assign  RS485_Rx_En_n = slv_reg12[5];
+  assign  RS485_Tx_En   = slv_reg12[6];
+
+  assign  Latch_Enable  = Ltch_En;
+  assign  Latch_Enable1 = Ltch_En1;
 
 
   ////////////////USER SIGNALS END
@@ -629,11 +636,6 @@ slv_reg12 (output_data_reg)
 
 // Add user logic here
 
-
-
-
-
-
 // IOBUF: Single-ended Bi-directional Buffer
 // All devices
 // Xilinx HDL Language Template, version 2019.1
@@ -868,12 +870,12 @@ end
 always @(posedge S_AXI_ACLK)
 begin
   if (S_AXI_ARESETN == 1'b0) begin //
-    counter <= 20'H0;
+    counter <= 28'H0;
   end else begin
     if (tris_O_reg == 1'b1 && tris_O == 1'b0) begin
-      counter <= 20'H0;
+      counter <= 28'H0;
     end else begin
-      counter <= counter + 20'b1;
+      counter <= counter + 28'b1;
     end
   end
 end
@@ -913,6 +915,22 @@ begin
     slv_reg11[0] <= 1'b0;
   end else begin
     slv_reg11[0] <= trigger_input_1;
+  end
+end
+
+always @(posedge S_AXI_ACLK)
+begin
+  if (S_AXI_ARESETN == 1'b0) begin
+    Ltch_En  <= 1'b0;
+    Ltch_En1 <= 1'b0;
+  end else begin
+    if (counter <= 28'D5000) begin
+      Ltch_En  <= 1'b1;
+      Ltch_En1 <= 1'b1;
+    end else begin
+      Ltch_En  <= 1'b0;
+      Ltch_En1 <= 1'b0;
+    end
   end
 end
 

@@ -133,7 +133,7 @@
 
 set_property PULLDOWN true [get_ports reset]
 set_property PULLDOWN true [get_ports sdo_i_0]
-set_property PULLUP   true [get_ports usb_uart_rxd]
+set_property PULLUP true [get_ports usb_uart_rxd]
 set_property PULLDOWN true [get_ports conv_io_0]
 
 set_property IOSTANDARD LVCMOS33 [get_ports conv_io_0]
@@ -164,12 +164,22 @@ set_property PACKAGE_PIN J3 [get_ports trigger_input_1_0]
 set_property PACKAGE_PIN A15 [get_ports RS485_Rx_En_n_0]
 set_property PACKAGE_PIN A16 [get_ports RS485_Tx_En_0]
 
+set_property PACKAGE_PIN  B16       [get_ports Latch_Enable1_0  ]
+set_property PACKAGE_PIN  B17       [get_ports Latch_Enable_0   ]
+set_property SLEW         FAST      [get_ports Latch_Enable1_0  ]
+set_property SLEW         FAST      [get_ports Latch_Enable_0   ]
+set_property IOSTANDARD   LVCMOS33  [get_ports Latch_Enable1_0  ]
+set_property IOSTANDARD   LVCMOS33  [get_ports Latch_Enable_0   ]
+
+
 set_property SLEW FAST [get_ports sck_o_0]
 set_property SLEW FAST [get_ports gen_o_0]
 set_property SLEW FAST [get_ports usb_uart_txd]
 set_property SLEW FAST [get_ports conv_io_0]
 
-set_property CONFIG_MODE SPIx1 [current_design]
+set_property CONFIG_MODE SPIx4 [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 set_property DRIVE 16 [get_ports conv_io_0]
 
+
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
